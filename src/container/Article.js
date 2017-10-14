@@ -4,9 +4,14 @@ import ContentPanel from '../container/ContentPanel.js';
 
 class Article extends Component {
   render() {
+    const data = [
+      {year: "1985", month: "Sep", title: "Leave", content: "Steve Jobs resigns from Apple and starts NeXT with five other refugees from Apple."},
+      {year: "1997", month: "Jul", title: "Return", content: "Gil Amelio is ousted by the Apple Board of directors after a disastrous quarter. Steve Jobs is named interim CEO in his place."},
+      {year: "2007", month: "Jan", title: "iPhone", content: "In his most memorable keynote presentation ever, at Macworld 2007, Steve Jobs introduces iPhone and its revolutionary touch-screen interface."},
+    ];
     return (
       <main id="article">
-        <ContentPanel></ContentPanel>
+        <ContentPanel title="Steve Jobs : Timeline" data={data}></ContentPanel>
       </main>
     );
   }
