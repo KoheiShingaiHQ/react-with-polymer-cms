@@ -13,7 +13,7 @@ class ContentsSquare extends Component {
       contents.push(
         <li key={data[i].main}>
           <a>
-            <div>
+            <div style={{backgroundImage:"url("+ data[i].image +")"}}>
               <ContentLabel main={data[i].main} sub={data[i].sub}></ContentLabel>
             </div>
           </a>
