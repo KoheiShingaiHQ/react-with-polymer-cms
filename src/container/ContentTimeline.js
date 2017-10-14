@@ -9,14 +9,14 @@ class ContentTimeline extends Component {
       <section>
         <section className="content-timeline">
           <time>
-            <span>2017</span>
+            <span>{this.props.year}</span>
             <span>{this.props.month}</span>
           </time>
           <div className="line"></div>
           <a>
             <div className="content">
-              <h2>Something</h2>
-              <p>Something about this timeline.</p>
+              <h2>{this.props.title}</h2>
+              <p>{this.props.content}</p>
             </div>
           </a>
         </section>
