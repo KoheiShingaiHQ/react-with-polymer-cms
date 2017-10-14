@@ -13,7 +13,7 @@ class ContentPanel extends Component {
     var data = this.props.data;
     for(var i in data){
       contents.push(
-        <ContentTimeline year={data[i].year} month={data[i].month} title={data[i].title} content={data[i].content}></ContentTimeline>
+        <ContentTimeline key={data[i].title} year={data[i].year} month={data[i].month} title={data[i].title} content={data[i].content}></ContentTimeline>
       );
     }
     this.setState({ contents : contents });
