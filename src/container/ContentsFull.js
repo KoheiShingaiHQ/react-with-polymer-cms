@@ -22,11 +22,7 @@ class ContentsFull extends Component {
     this.setState({ contents : contents });
   }
   render() {
-    return (
-      <section id="contents-full">
-        <ul>{this.state.contents}</ul>
-      </section>
-    );
+    return ( <ul>{this.state.contents}</ul> );
   }
 }
 

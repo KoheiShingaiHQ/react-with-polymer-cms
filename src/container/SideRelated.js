@@ -19,7 +19,7 @@ class SideRelated extends Component {
   render() {
     return (
       <section id="side-related">
-        <section className="en">
+        <section className={(localStorage.language.substring(0, 2) || "en")}>
           <h2 className="en">Related</h2>
           <h2 className="ja">関連</h2>
           <ul id="related">

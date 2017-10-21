@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom'
 import ContentsSquare from '../container/ContentsSquare.js';
+import { firebaseDb } from '../firebase/';
+import ReactDOM from 'react-dom';
 
 class About extends Component {
+  constructor(props) {
+    super(props);
+  }
+  initAbout() {
+    var about = firebaseDb.ref("about");
+    about.on('value', function(snapshot){
+      const val = snapshot.val();
+      if (val) {
+        var contentsSquareTag = document.createElement("section");
+        contentsSquareTag.id = "contents-square";
+        if (document.getElementById("about")) {
+          document.getElementById("about").innerHTML = "";
+          document.getElementById("about").appendChild(contentsSquareTag);          
+          const square = React.createElement(ContentsSquare, {data : val.square});
+          ReactDOM.render(square, document.getElementById("contents-square"));
+          document.getElementsByTagName("footer")[0].style.opacity = 1;
+        }
+      }
+    });
+  }
+  componentDidMount() {
+    document.getElementsByTagName("footer")[0].style.opacity = 0;
+    this.initAbout();
+  }
   render() {
-    const data = [
-      {main: "Doodles", sub: "Doodle all the time!", image: "https://www.toptal.com/designers/subtlepatterns/patterns/doodles.png"},
-      {main: "Cloudy Day", sub: "Clouds raced all across the spring sky.", image: "https://www.toptal.com/designers/subtlepatterns/patterns/cloudy-day.png"},
-      {main: "Sakura", sub: "In anticipation of spring – cherry blossom pattern.", image: "https://www.toptal.com/designers/subtlepatterns/patterns/sakura.png"},
-      {main: "Dark Sharp Edges", sub: "Some dark 45 degree angles creating a nice pattern. Huge.", image: "https://www.toptal.com/designers/subtlepatterns/patterns/footer_lodyas.png"},
-      {main: "Restaurant", sub: "A lot of people like the icon patterns, so here’s one for your restaurant blog.", image: "https://www.toptal.com/designers/subtlepatterns/patterns/restaurant_icons.png"},
-      {main: "Congruent Pentagon", sub: "I came up with this pattern. Madness!", image: "https://www.toptal.com/designers/subtlepatterns/patterns/congruent_pentagon.png"},
-      {main: "Food", sub: "Holy mackerel, it’s colorful—but still subtle.", image: "https://www.toptal.com/designers/subtlepatterns/patterns/food.png"},
-      {main: "Nice Snow", sub: "Not the most subtle, but very useful.", image: "https://www.toptal.com/designers/subtlepatterns/patterns/nice_snow.png"},
-      {main: "Grey Washed Wall", sub: "This is a semi-dark pattern, sort of linen-y.", image: "https://www.toptal.com/designers/subtlepatterns/patterns/grey_wash_wall.png"},
-    ];
-    return (
-      <main id="about">
-        <ContentsSquare data={data}></ContentsSquare>
-      </main>
-    );
+    return ( <main id="about"></main> );
   }
 }
 

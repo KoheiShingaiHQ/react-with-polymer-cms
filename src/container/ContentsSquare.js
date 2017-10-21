@@ -23,11 +23,7 @@ class ContentsSquare extends Component {
     this.setState({ contents : contents });
   }
   render() {
-    return (
-      <section id="contents-square">
-        <ul>{this.state.contents}</ul>
-      </section>
-    );
+    return ( <ul>{this.state.contents}</ul> );
   }
 }
 

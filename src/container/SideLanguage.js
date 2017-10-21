@@ -64,7 +64,7 @@ class SideLanguage extends Component {
   render() {
     return (
       <section id="side-language">
-        <section className="en">
+        <section className={(localStorage.language.substring(0, 2) || "en")}>
           <h2 className="en">Language</h2>
           <h2 className="ja">言語</h2>
           <div className="selector" onClick={this.clickSideLanguage}>
