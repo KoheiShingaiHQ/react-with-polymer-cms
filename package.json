@@ -1,7 +1,7 @@
 {
   "name": "polyreact",
   "version": "0.1.0",
-  "homepage": "https://koheishingaiHQ.github.io/react-with-polymer-cms-dummy/",
+  "homepage": "https://koheishingaiHQ.github.io/react-with-polymer-cms/",
   "private": true,
   "dependencies": {
     "firebase": "^4.3.0",
